@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+       <link rel="shortcut icon" href="/faviiconhellokitty.png" type="image/x-icon">
+        <title>exemplo.darkmode</title>
+    
+        <style>
+           :root {
+                --fundo-claro: #f4f4f4;
+                --fundo-escuro: #000;
+                --botao-primario: #7d1ad4;
+                --botao-primario-hover: #6e17b9;
+                --texto-claro: #000;
+                --texto-escuro: #f4f4f4;
+            }
+    
+            [data-theme="dark"] {
+                --fundo-claro: #000;
+                --fundo-escuro: #f4f4f4;
+                --texto-claro: #f4f4f4;
+                --texto-escuro: #000;
+            }
+    
+            * {
+                margin: 0;
+                padding: 0;
+    
+            }
+    
+            body {
+                background-color: var(--fundo-claro);
+                color: var(--texto-claro);
+                /* Adicionar esta linha */
+                min-height: 100vh;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
+    
+            div {
+                background-color: var(--fundo-escuro);
+                color: var(--texto-escuro);
+                /* Adicionar esta linha */
+                display: flex;
+                flex-direction: column;
+                gap: 2rem;
+                align-items: center;
+                padding: 2rem;
+                border-radius: 0.9rem;
+    
+            }
+    
+            button {
+                background-color: var(--botao-primario);
+                color: var(--texto-escuro);
+                /* texto do botão mude */
+                padding: 0.4rem;
+                border: none;
+                border-radius: 0.6rem;
+                width: 80px;
+                height: 80px;
+                cursor: pointer;
+            }
+    
+            button:hover {
+                background-color: var(--botao-primario-hover);
+                transition: 0.8s;
+            }
+    
+            svg {
+                color: var(--texto-claro);
+                /* Ajuste a cor do SVG conforme o tema */
+                width: 34px;
+                height: 34px;
+            }
+        </style>
+    
+    </head>
+    
+    <body>
+        <div>
+            <h1>javascript - Modo Dark</h1>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nam dicta minus eveniet laborum quis molestias,
+                cupiditate explicabo corrupti unde non inventore vitae ullam saepe dolorum ab! Facere quod inventore
+                consequatur.
+            </p>
+            <button id="bnt-dark-mode"></button>
+        </div>
+    </body>
+    <script>
+        // 'const' é usado para variáveis que não serão reatribuídas após a inicialização.
+        // 'btnDarkMode' armazena a referência ao elemento HTML do botão com o ID 'btn-dark-mode'
+        const btnDarkMode = document.getElementById('bnt-dark-mode');
+        // 'themeSystem' obtém o valor da chave 'themeSystem' do 'localStorage'.
+        // Se não existir nenhum valor para essa chave, o valor padrão 'light' é atribuído.
+        const themeSystm = localStorage.getItem('themeSystem') || 'light';
+        // adiciona um 'event listener' ao botão para o evento de 'click'.
+        // Quando o botão é clicado, a função dentro das chaves '{}' será executada
+        btnDarkMode.addEventListener('click', () => {
+            // Obtém o tema atual do 'localStorage'(ou usa 'light', como padrão)
+            let oldTheme = localStorage.getItem('themeSystem') || 'light';
+            // Determina o novo tema. Se o tema antigo for 'light', o novo será 'dark', e vice-versa
+            let newTheme = oldTheme === "light" ? "dark" : "light";
+            // Salva o novo tema no 'localStorage' com a chave 'themeSystem'
+            localStorage.setItem('themeSystem', newTheme);
+            // Chama a função 'defineCurrentTheme' para aplicar o novo tema visualmente
+            defineCurrentTheme(newTheme);
+    
+        });
+        // Função que recebe um 'theme' como argumento e aplica esse tema à página.
+        function defineCurrentTheme(theme) {
+            // Declaração das variáveis para os códigos SVG dos ícones de modo escuro e claro.
+            // VOCÊ PRECISA DEFINIR ESTES CÓDIGOS SVG AQUI SE DESEJA MUDAR O ÍCONE DO BOTÃO.
+            const darkSvg = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" 
+            fill="currentColor" class="w-6 h-6"><path d="M12 3v1m8.793 9.793-1.414 1.414m-7.07 
+            0 7.07 7.071m1.414-1.414L21 21v-1m-4.243-8.485-1.414-1.414M12 21v-1m-8.793-9.793L5 
+            5.05M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4Z"/></svg>`;
+    
+            const lightSvg = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" 
+            fill="currentColor" class="w-6 h-6"><path fill-rule="evenodd" d="M9.5 12a2.5 2.5 
+            0 1 1 5 0 2.5 2.5 0 0 1-5 0ZM12 1a7 7 0 1 0 0 14A7 7 0 0 0 12 1ZM2 12C2 6.477 6.477 
+            2 12 2s10 4.477 10 10-4.477 10-10 10S2 17.523 2 12Z" clip-rule="evenodd" /></svg>`;
+            // Define o atributo 'data-theme' no elemento 'html' com o valor do tema atual.
+            // Isso permite que as regras CSS com '[data-theme="..."]' sejam aplicadas
+            document.documentElement.setAttribute("data-theme", theme);
+            // Verifica se o tema atual é 'light'
+            if(theme === "light") {
+                btnDarkMode.innerHTML=darkSvg;
+                return
+            }
+    
+            btnDarkMode.innerHTML = lightSvg
+        }
+    
+        defineCurrentTheme(themeSystem);
+    
+    </script>
+    
+    </html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
