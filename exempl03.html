@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aula03_Js</title>
+
+    <style>
+        :root {
+            --color-dark: #000;
+            --color-white: #fff;
+            --color-light: #ababab;
+            --color-carmen: #dc143c;
+
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            background-color: var(--color-dark);
+            color: var(--color-white);
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+            box-sizing: border-box
+        }
+
+        body {
+            display: flex;
+            justify-content: center;
+            flex-direction: column;
+            align-items: center;
+            gap: 16px;
+            min-height: 100vh;
+        }
+
+        .clock {
+            display: flex;
+            justify-content: center;
+            gap: 50px;
+            flex-wrap: wrap;
+
+        }
+
+
+        .clock span {
+            color: var(--color-white);
+            font-size: 150px;
+            display: flex;
+            align-items: center;
+            gap: 50px;
+
+        }
+
+        .clock span:not(:last-child)::after {
+            content: ':';
+            margin-bottom: 25px;
+            color: var(--color-light);
+        }
+
+        h2 {
+            width: 100%;
+            text-align: center;
+        }
+
+        h2 strong {
+            color: var(--color-carmen);
+        }
+
+        @media screen and (max-width: 992px) {
+            .clock span {
+                font-size: 50px;
+            }
+        }
+
+            .clock span:not(:last-child)::after {
+                /* display: none; */
+                display: block;
+                content: ':';
+                margin-bottom: 5px;
+            }
+
+            h2 strong {
+                color: var(--color-light);
+
+            }
+
+        }
+    </style>
+</head>
+
+<body>
+    <div class="clock">
+        <span id="hours">00</span>
+        <span id="minutes">00</span>
+        <span id="seconds">00</span>
+
+        <h2>
+            <strong>
+                @arthurrodrigues1258
+            </strong>
+        </h2>
+
+    </div>
+</body>
+<script>
+
+    const hoursElement = document.getElementById(`hours`);
+
+    const minutesElement = document.getElementById(`minutes`);
+
+    const secondsElement = document.getElementById(`seconds`);
+
+    function fixTime(time) {
+        return time < 10 ? '0' + time : time
+    }
+
+    function newTime() {
+        const date = new Date();
+        const hours = date.getHours();
+        const minutes = date.getMinutes();
+        const seconds = date.getSeconds();
+
+        hoursElement.textContent = fixTime(hours);
+        minutesElement.textContent = fixTime(minutes);
+        secondsElement.textContent = fixTime(seconds);
+    }
+
+    newTime()
+    setInterval(newTime, 1000);
+
+</script>
+
+</html>
