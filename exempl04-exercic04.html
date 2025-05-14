@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aula04_Light_Buld</title>
+    <link rel="shortcut icon" href="assets/Lampada.png" type="image/x-icon">
+    <style>
+        :root{
+            --gabriel: #0000ff;
+            --ster: purple;
+            --matheus: green;
+
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: var(--ster);
+            background-image: linear-gradient(to top,
+             var(--gabriel), var(--matheus));
+            background-attachment: fixed;
+        }
+
+        header,
+        section {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        button {
+            width: 80px;
+        }
+
+    </style>
+</head>
+<body>
+    <header>
+        <h1>
+            Lâmpada
+        </h1>
+    </header>
+
+    <section>
+        <div>
+            <img src="./lamp_off.jpeg" 
+            alt="Lâmpada Off" id="lamp">
+        </div>
+
+        <div>
+            <button id="turnOn">Bomdia</button>
+            <button id="turnOff">AchoBom</button>
+        </div>
+    </section>
+</body>
+
+<script>
+    const turnOn = document.getElementById("turnOn");
+    const turnOff = document.getElementById("turnOff");
+    const Lamp = document.getElementById("lamp");
+
+    function isLampBroken(){
+        return lamp.scr.indexOf ("quebrada") > -1
+    }
+
+    function lamOn () {
+        if (lisLampBroken ()) {
+            lamp.src = "/assets/lamp_on.jpeg";
+        }
+    }
+ function lampOff () {
+    if (!isLampBroken ()){
+        lamp.src = "/assets/lamp_off.jpeg";
+    }
+ }
+
+ function LampBroken (){
+    lamp.src = "/assets/lamp_broke.jpeg".
+ }
+
+ turnOn.addEventListener('click', lamOn);
+ turnOff.addEventListener('click', lampOff);
+ lamp.addEventListener('mouseover', lamOn);
+ lamp.addEventListener('mouseleave', lampOff);
+ lamp.addEventListener('dblclick', LampBroken);
+
+
+</script>
+
+</html>
+
