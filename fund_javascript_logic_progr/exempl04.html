@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Seletor de Color</title>
+    <link rel="shortcut icon" href="assets/verified_user_24dp_F3F3F3_FILL0_wght400_GRAD0_opsz24.png" type="image/x-icon">
+
+    <style>
+    button{
+    background: #dc143c;
+    min-height: 90vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    transition: 0.3s cubic-bezier(0.215, 0.61, 0.355, 1);
+
+}
+
+h2{
+    color: #fff;
+    font-weight: 200;
+}
+
+button{
+    padding: 15px;
+    background: transparent;
+    border: 2px solid white;
+    color: #fff;
+    transition: 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+
+button:hover {
+    background: #fff;
+    color: #000;
+    cursor: pointer
+}
+     
+button:active {
+    padding: 5px;
+}
+
+
+    </style>
+</head>
+
+<body>
+    
+<button id="btn">Qual é sua cor?</button>
+<h2 id="hexCode">#dc143c</h2>
+
+</body>
+<script>
+    //variaveis
+    //a- variaveis vísiveis (let, var); b- variaveis
+    const btn = document.getElementById("btn");
+
+    let hex = document.getElementById("hexCode");
+
+    //function (funções ou função)
+    function mudarCor() {
+        let letters = "0123456789ABCDEF";
+
+        let Color = "#";
+
+        for ( let i = 0; i < 6; i++) {
+            color += letters[Math.floor
+            (Math.random() * 16)];
+        }
+        return color;
+    }
+
+    btn.addEventListener("click", () =>{ 
+        document.body.style.backgroundColor = mudarCor();
+        hex.innerHTML = mudarCor();
+    })
+
+</script>
+</html>

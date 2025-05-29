@@ -1,0 +1,108 @@
+@charset "utf-8";
+
+/*  */
+
+:root {
+  --rodolfo: #4ea7ed;
+  --nina: #2415b0;
+  --reidomongo: #f447ec;
+  --carlinhoscavalo: #02f889;
+  /* --writ:lucinda caligrafy; */
+}
+/* O que sabemos sobre formatação de texto
+-cor (color:)
+-tipos de fonte (font-family:) 
+-tamanho de fonte (font-size:)
+-margem de texto (margin:)
+-espaçamento (padding:)
+*/
+
+/* cor principal; cor segundaria; cor destaque;
+     cor para texto (não pode ser branco ou preto) */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  height: 100vh;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 18px;
+  /* background-color: aqua; */
+}
+
+body{
+  background-image: linear-gradient(to top, var(--rodolfo), var(--reidomongo));
+  background-repeat: repeat;
+  background-attachment: fixed;
+
+  color: #070101;
+  font-family: 'Times New Roman', Times, serif;
+}
+
+header {
+  /* px, % - Mobile First: vh, wv, em, rem */
+  background-color: var(--nina);
+  height: 20vh;
+  text-align: center;
+}
+
+h1{
+  text-align: center;
+  padding: 0.3em;
+  text-transform: uppercase;
+}
+
+menu {
+  background-color: var(--carlinhoscavalo);
+  height: 7vh;
+}
+li{
+  display: inline-block;
+}
+
+section {
+  background-color: var(--reidomongo);
+  height: auto;
+  /* height: 100vh; */
+}
+
+footer {
+  background-color: var(--rodolfo);
+  height: 5vh;
+  text-align: center;
+}
+
+button{
+  color: #00ffff;
+  background-color: #ffe4c4;
+  
+}
+
+img{
+  border-radius: 8px;
+}
+
+img{
+  max-width: 320px;
+  float: left;
+  border: #4ea7ed;
+  border-radius: 10 px;
+  margin-right: 15 px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+

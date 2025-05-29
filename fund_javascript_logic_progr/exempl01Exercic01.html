@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quebrando a Maldição</title>
+</head>
+<body>
+    <h1>Quebrando a Maldição</h1>
+    <p>Criando meu primeiro, javacript</p>
+    <p id="tutu"></p>
+
+    <script>
+        window.alert('bem vindo ao meu site');
+
+        let numHum = prompt('digite um numero: ');
+        let numDois = prompt ('digite dois: ');
+
+        let numeroHum = Number(numHum);
+        let numeroDois = Number(numDois);
+
+        let result = numeroHum + numeroDois;
+
+        document.getElementById('tutu').innerHTML = `o resultado da soma é: ${result}`;
+    </script>
+</body>
+</html>

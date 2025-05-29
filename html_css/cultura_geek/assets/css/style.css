@@ -1,0 +1,61 @@
+@charset "utf-8";
+
+/*  */
+
+:root {
+  --bomdia: #24306ce2;
+  --pablomarçal: #ffa600c9;
+  --minecraft: #008000;
+  --alanzoka: #951919;
+
+  /* cor principal; cor segundaria; cor destaque;
+     cor para texto (não pode ser branco ou preto) */
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  height: 100vh;
+  /* background-color: aqua; */
+}
+
+body {
+  background-image: linear-gradient(to top, var(--bomdia), var(--alanzoka));
+  background-repeat: repeat;
+  background-attachment: fixed;
+
+  color: #161105;
+  font-family: 'Times New Roman', Times, serif;
+}
+
+header {
+  /* px, % - Mobile First: vh, wv, em, rem */
+  background-color: var(--bomdia);
+  height: 10vh;
+}
+
+menu {
+  background-color: var(--alanzoka);
+  height: 7vh;
+}
+
+section {
+  background-color: var(--pablomarçal);
+  height: auto;
+  /* height: 100vh; */
+}
+
+footer {
+  background-color: var(--minecraft);
+  height: 5vh;
+}
+
+button{
+  color: aqua;
+  background-color: bisque;
+  
+}
